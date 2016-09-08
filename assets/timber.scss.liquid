@@ -2548,6 +2548,13 @@ label.error {
 {% endif %} // settings.ajax_cart_method
 
 
+body {
+    font-family: Oswald, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    //letter-spacing: .1em;
+}
+
 .nav-bar {
   background-color: white;
 }
@@ -2614,7 +2621,7 @@ label.error {
 
 }
 
-/*----------  TOPMENU  ----------*/
+/*----------  TOPMENU Start ----------*/
 #TopMenu {
   background: #000000;
   color: #fff;
@@ -2679,10 +2686,129 @@ label.error {
     }
   }
 }
+/*----------  TOPMENU End ----------*/
 
 
+/*----------  FOOTER Start  ----------*/
 footer.site-footer {
   background: #000000;
   color: #FFFFFF;
   margin: 20px 0 0;
+  padding: 40px 0;
+
+  .grid {
+    .grid__item.large--one-quarter.medium--one-third {
+      h3 {
+        background: url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/square-dark.png);
+        padding: 10px 12px;
+        margin-bottom: 0;
+        font-size: 18px;
+        font-family: Oswald, sans-serif;
+        font-weight: 300;
+        line-height: 1.5;
+        letter-spacing: .1em;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        width: auto;
+        padding: 5%;
+
+        li {
+          font-size: 12px;
+          margin: 0 0 10px 0;
+
+          a {
+            color: #c3cbd6;
+            padding: 0;
+          }
+        }
+      }
+
+      #contact_form {
+        padding: 10px 12px;
+        font-size: 12px;
+
+        p{
+          letter-spacing: 1px;
+        }
+
+        label {
+          width: 55px;
+          line-height: 23px;
+          margin-bottom: 10px;
+          float: left;
+        }
+
+        #Email {
+          width: 75%;
+          margin-bottom: 10px;
+          height: 24px;
+          padding: 4px 5px 3px 5px;
+          border: solid 0px;
+          border-radius: initial;
+        }
+
+
+        .input-group-btn {
+          float: left;
+          margin-left: 55px;
+
+          .btn {
+            font-family: Oswald, sans-serif;
+            font-weight: 300;
+            font-weight: normal;
+            letter-spacing: 1px;
+            background: #f3bacf;
+            min-width: 74px;
+            width: auto;
+            height: auto;
+            padding: 4px 12px;
+            border: 0;
+            border-radius: initial;
+          }
+        }
+      }
+
+      .footerbox {
+        padding: 10px 12px;
+        
+        .icon-social {
+          background-image: url(http://cdn3.bigcommerce.com/s-937qt/templates/__custom/images/sprite-social.png?t=1465543908);
+          float: left;
+          text-indent: -9999px;
+          margin: 0 8px 8px 0;
+          width: 28px;
+          height: 28px;
+          
+          &.icon-facebook {
+            background-position: 0 0;
+
+            &:hover {
+              background-position: 100% 0;
+            }
+          }
+          
+          &.icon-instagram {
+            background-position: 0 -360px;
+
+            &:hover {
+              background-position: -126px -360px;
+            }
+          }
+        }
+      }
+
+      
+    }
+    .credit {
+        img {
+          vertical-align: middle;
+          margin: 0 5px;
+        }
+      }
+  }
 }
+
+/*----------  FOOTER End  ----------*/
