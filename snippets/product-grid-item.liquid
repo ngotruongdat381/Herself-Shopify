@@ -37,7 +37,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<div class="grid__item {{ grid_item_width }}">
+<div class="grid__item product-item {{ grid_item_width }}">
 
   {% comment %}
     Link to your product with the 'within: collection' filter for the link to be aware of the collection.
@@ -87,5 +87,7 @@
       <br><s>{{ product.compare_at_price | money }}</s>
     {% endif %}
   </p>
-
+  <div class="ProductActionAdd" style="display:;">
+        <a href="http://www.herselfandco.com/cart.php?action=add&amp;product_id=2" class="Add To Cart">Add To Cart</a>
+  </div>
 </div>

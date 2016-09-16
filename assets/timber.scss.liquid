@@ -2576,11 +2576,14 @@ body {
     letter-spacing: normal;
     line-height: 25px;
     margin-right: -3px;
+    padding-bottom: 2px;
+    margin-bottom: -2px;
+    border-left: 1px solid #545c66;
 
     .site-nav__link {
       color: #fff;
-      border-left: 1px solid #545c66;
-      padding: 10px 22px; //22px
+      //border-left: 1px solid #545c66;
+      padding: 10px 22px 10px 22px;
     }
 
     &:first-child {
@@ -2591,6 +2594,10 @@ body {
 
     &:hover {
       background-color: #f3bacf;
+    }
+
+    .site-nav__dropdown{
+      display: none;
     }
 
   }
@@ -2773,7 +2780,7 @@ footer.site-footer {
 
       .footerbox {
         padding: 10px 12px;
-        
+
         .icon-social {
           background-image: url(http://cdn3.bigcommerce.com/s-937qt/templates/__custom/images/sprite-social.png?t=1465543908);
           float: left;
@@ -2812,3 +2819,256 @@ footer.site-footer {
 }
 
 /*----------  FOOTER End  ----------*/
+
+
+/*----------  SLIDER Start  ----------*/
+
+.rslides_container {
+  margin-bottom: 50px;
+  position: relative;
+  float: left;
+  width: 100%;
+  }
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+  .rslides_nav {
+  z-index: 3;
+  position: absolute;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  top: 50%;
+  left: 0;
+  opacity: 0.7;
+  text-indent: -9999px;
+  overflow: hidden;
+  text-decoration: none;
+  height: 61px;
+  width: 38px;
+  background: transparent url("themes.gif") no-repeat left top;
+  margin-top: -45px;
+  }
+
+.rslides_nav:active {
+  opacity: 1.0;
+  }
+
+.rslides_nav.next {
+  left: auto;
+  background-position: right top;
+  right: 0;
+  }
+
+  /*----------  SLIDER End  ----------*/
+
+
+.medium-up--one-fifth {
+    width: 20%;
+}
+
+.medium-up--four-fifths {
+    width: 80%;
+}
+
+
+.medium-up--hide {
+  @media only screen and (min-width: 750px){
+    display: none !important;
+  }
+}
+
+#SiteNav {
+  h2 {
+    background: #fff url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/square.png);
+    font-size: 18px;
+    line-height: 42px;
+    color: #f3bacf;
+    padding: 0 0 0 12px;
+    margin: 0 0 0px;
+    font-family: Oswald, sans-serif;
+    margin-left: 20px;
+  }
+
+  .list--nav {
+    border: 1px solid #e5e5e5;
+
+    .site-nav__element {
+      position: relative;
+      border-bottom: 1px solid #e5e5e5;
+
+      &:last-child {
+        display: none;
+      }
+
+      &.site-nav--has-submenu {
+        border-bottom: 0px;
+      }
+
+      .hitarea.expandable-hitarea {
+        background: url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/menu-arrow.png) no-repeat center -41px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-left: 1px solid #e5e5e5;
+        background-position: 12px -41px;
+        width: 24px;
+        height: 24px;
+        padding: 15px;
+      }
+
+      button {
+        color: #444;
+        font-size: 12px;
+        text-decoration: none;
+        //border-bottom: 1px solid #bdbdbd;
+        padding: 8px 10px 8px 10px;
+        display: block;
+        font-family: Oswald, sans-serif;
+        font-weight: 300;
+        line-height: 1.5;
+        letter-spacing: .1em;
+        border-bottom: 1px solid #e5e5e5;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          background-color: #f3bacf;
+          color: white;
+        }
+      }
+
+      a {
+        color: #444;
+        font-size: 12px;
+        text-decoration: none;
+        //border-bottom: 1px solid #bdbdbd;
+        padding: 8px 10px 8px 10px;
+        display: block;
+      }
+
+      .site-nav__submenu {
+        margin: 0px;
+        background-color: #f2f2f2;
+
+        li:hover {
+          background-color: #f3bacf;
+
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+  /*----------  SIDEBAR End  ----------*/
+.hidden {
+     display: none !important;
+  }
+
+  /*----------  GRID PRODUCT Start  ----------*/
+#MainContent {
+  margin-top: 0px;
+
+  h2 {
+    background: url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/square.png);
+    color: #f3bacf;
+    line-height: 42px;
+    padding: 0 0 0 12px;
+    font-size: 18px;
+    margin: 0 0 18px;
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .product-item {
+    border: 1px solid #e5e5e5;
+    border-bottom: 2px solid #ddd;
+    background: #f2f2f2;
+    padding-left: 0px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    width: 23%;
+    min-height: 395px;
+    margin-bottom: 20px;
+
+    a {
+      background: white;
+      height: 248px;
+
+      img {
+        max-height: 248px;
+      }
+    }
+
+    h6 {
+      color: #4c4944;
+      padding: 0px 8px 0px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 12px;
+      height: 35px;
+
+      a {
+        background: #f2f2f2 !important;
+      }
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: bold;
+      color: #f3bacf;
+      text-align: center;
+    }
+
+    .ProductActionAdd {
+      padding: 12px 0px;
+      text-align: center;
+
+      .Add.To.Cart {
+        background: #000000 url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/white/cart.png) 8px 50% no-repeat !important;
+        border: solid #000000 1px;
+        color: #fff !important;
+        font-family: "oswald";
+        line-height: 26px;
+        display: inline-block;
+        zoom: 1;
+        height: 26px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 0 10px 0 30px;
+      }
+    }
+  }
+}
+/*----------  GRID PRODUCT End  ----------*/
