@@ -377,6 +377,7 @@
     </nav>
 
     <main class="wrapper main-content" role="main">
+    {% include 'breadcrumb' %}
     <div class="twelve columns">
       <section class="rslides_container">
         <ul class="rslides">
@@ -537,9 +538,16 @@
           {% include 'breadcrumb-nav' %}
         {% endif %}
         {{ content_for_layout }}
+
+        <a href="javascript:void(0);" class="backtotop" alt="Scroll to Top" title="Scroll to Top">&nbsp;</a>
+
       </main>
 
+      
+
     </div>
+
+
 
     </main>
 
