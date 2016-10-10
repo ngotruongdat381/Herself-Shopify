@@ -19,10 +19,15 @@
   {% endcomment %}
   {% assign current_variant = product.selected_or_first_available_variant %}
 
+  {% comment %}
   {% include 'breadcrumb' %}
+  {% endcomment %}
 
   <div class="grid product-single">
-    <div class="grid__item large--one-half text-center">
+    <h2 itemprop="name">{{ product.title }}</h2>
+    <div class="InfoMessage Message">Spend another $251.65 to qualify for free shipping!</div>
+
+    <div class="grid__item large--one-half text-center wrapper-photos">
       <div class="product-single__photos" id="ProductPhoto">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
@@ -46,9 +51,9 @@
       {% endif %}
     </div>
 
-    <div class="grid__item large--one-half">
+    <div class="grid__item large--one-half product-info">
 
-      <h1 itemprop="name">{{ product.title }}</h1>
+      <!-- <h1 itemprop="name">{{ product.title }}</h1> -->
 
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -91,19 +96,40 @@
           </select>
 
           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">
-            {{ current_variant.price | money }}
-          </span>
 
-          {% if product.compare_at_price_max > product.price %}
-            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-            <p id="ComparePrice">
-              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-            </p>
-          {% endif %}
+          <h5 class="brandName" style="display: "><a href="http://www.herselfandco.com/brands/b.tan.html">b.tan</a></h5>
+          
+          <div class="ProductPriceWrap">
+            {% if product.compare_at_price_max > product.price %}
+            <span class="Label">RRP:</span>
+            <strike id="CompareAtPrice" itemprop="price" content="{{ current_variant.compare_at_price | divided_by: 100 }}">
+              {{ current_variant.compare_at_price | money }}
+            </strike>
+            {% endif %}
 
-          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            <span id="ProductPrice" class="h1" itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">
+              {{ current_variant.price | money }}
+            </span>
+
+            {% if product.compare_at_price_max > product.price %}
+            <span class="YouSave"> (You save <span class="YouSaveAmount">$79.60</span>)</span>
+            {% endif %}
+
+          </div>
+
+          <div class="ProductAtt" id="SKU">
+            <div class="Label">SKU:</div>
+            <div class="Value">
+              <span class="VariationProductSKU">
+                {{ product.variants.first.sku }}
+              </span>
+            </div>
+          </div>
+
+          <div class="ProductAtt" id="quantity">
+            <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+          </div>
 
           <button type="submit" name="add" id="AddToCart" class="btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
@@ -112,11 +138,7 @@
 
       </div>
 
-      <div class="product-description rte" itemprop="description">
-        {{ product.description }}
-      </div>
-
-      {% comment %}
+<!--       {% comment %}
         If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
         in the URL, we can show next/previous links to other products in the collection.
       {% endcomment %}
@@ -135,8 +157,55 @@
             {% endif %}
           </p>
         {% endif %}
-      {% endif %}
+      {% endif %} -->
 
+    </div>
+
+    <div class="description-header"><span>&nbsp;</span>Product Description</div>
+    <div class="product-description rte" itemprop="description">
+        <!-- {{ product.description }} -->
+
+    </div>
+    
+    {%assign tab01 = 'Details' %}
+    {%assign tab03 = 'How to use' %}
+
+    {% if product.description contains 'Ingredients' %}
+      {% assign split01 = {{product.description}} | split: 'Ingredients' %}
+      {%assign tab02 = 'Ingredients' %}
+
+    {% elsif product.description contains 'Technical' %}
+      {% assign split01 = {{product.description}} | split: 'Technical' %}
+      {%assign tab02 = 'Technical' %}
+
+    {% else %}
+      {% assign split01 = {{product.description}} | split: 'Ingredients' %}
+    {% endif %}
+
+    {% assign details = split01[0] | remove_first: 'Details' %}
+    {% assign split02 = split01[1] | split: 'How to use' %}
+    {% assign ingredients = split02[0] %}
+    {% assign howToUse = split02[1] %}
+
+<!--         {% for word in words %}
+        {{ word }} <br> <br>
+        {% endfor %} -->
+    <div>
+      <ul class="tabs">
+        <li><a href="#tab-1">{{tab01}}</a></li>
+        <li><a href="#tab-2">{{tab02}}</a></li>
+        <li><a href="#tab-3">{{tab03}}</a></li>
+      </ul>
+      <div id="tab-1" class="tab-description">
+      {{ details | strip | capitalize }}
+      </div>
+      <div id="tab-2" class="tab-description">
+      {{ ingredients | strip | capitalize }}
+      </div>
+      <div id="tab-3" class="tab-description">
+      {{ howToUse | strip | capitalize }}
+      {{split02[2] | strip | capitalize }}
+      </div>
     </div>
   </div>
 
@@ -185,3 +254,114 @@
     {% endif %}
   });
 </script>
+
+{%comment%}
+jQuery for Tab function
+{%endcomment%}
+
+<script>
+  $(document).ready(function() {
+    $('ul.tabs').each(function(){
+      var active, content, links = $(this).find('a');
+      active = links.first().addClass('active');
+      content = $(active.attr('href'));
+
+      links.not(':first').each(function () {
+        $($(this).attr('href')).hide();
+      });
+
+      $(this).find('a').click(function(e){
+        active.removeClass('active');
+        content.hide();
+        active = $(this);
+        content = $($(this).attr('href'));
+        active.addClass('active');
+        content.show();
+        return false;
+      });
+
+      /*Hide empty tab*/
+      $('div.tab-description').each(function(){
+        if ($.trim($(this).html()).length == 0)
+        {
+          id = $(this).attr('id');
+          hiddenTab = $("a[href='#" + id +"']")
+          hiddenTab.hide()
+        } 
+      });
+
+
+    });
+  });
+</script>
+
+<style>
+ul.tabs {
+  border-bottom: 1px solid #DDDDDD;
+  display: block;
+  margin: 0 0 20px;
+  padding: 0;
+}
+ul.tabs li {
+  display: block;
+  float: left;
+  height: 30px;
+  margin-bottom: 0;
+  padding: 0;
+  width: auto;
+}
+ul.tabs li a {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 #F5F5F5;
+  border-color: #DDDDDD !important;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+  display: block;
+  font-size: 13px;
+  height: 29px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0 20px;
+  text-decoration: none;
+  width: auto;
+  color: #303030;
+  border-bottom:none !important;
+}
+ul.tabs li a.active {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-left-width: 1px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: #111111;
+  height: 30px;
+  margin: 0 0 0 -1px;
+  padding-top: 4px;
+  position: relative;
+  top: -4px;
+}
+ul.tabs li:first-child a.active {
+  margin-left: 0;
+}
+ul.tabs li:first-child a {
+  border-top-left-radius: 2px;
+  border-width: 1px 1px 0;
+}
+ul.tabs li:last-child a {
+  border-top-right-radius: 2px;
+}
+ul.tabs:before, ul.tabs:after {
+  content: " ";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+ul.tabs:after {
+  clear: both;
+}
+</style>

@@ -2589,6 +2589,14 @@ body {
     &#norvell {
       background-image: url(http://cdn4.bigcommerce.com/s-937qt/templates/__custom/images/norvell-bg.jpg);
     }
+
+    &.template-product {
+      .breadcrumb {
+        a, span {
+          display: none;
+        }
+      }
+    }
 }
 
 .nav-bar {
@@ -2627,6 +2635,139 @@ body {
     display: block;
     margin: 0 5px;
   }
+  /*----------  PRODUCT SINGLE Start ----------*/
+  .product-single {
+    margin-left: 0;
+    .InfoMessage  {
+      background-color: #effdfd;
+      background-image: url(HTTP://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/white/InfoIcon.png);
+      background-position: 5px 5px;
+      border-color: #d9f1f1;
+      background-repeat: no-repeat;
+      padding: 5px 10px 5px 35px;
+      color: #000;
+      border-width: 1px;
+      border-style: solid;
+      margin-bottom: 15px;
+    }
+
+    .wrapper-photos {
+      background: #FFFFFF;
+      border: 1px solid #ddd;
+      margin-bottom: 7px;
+      margin-left: 0px !important;
+      margin-right: 0;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+      padding-left: 0;
+    }
+
+    .product-info {
+      #AddToCartForm {
+        .brandName {
+          font-family: 'Oswald', sans-serif;
+          font-weight: normal;
+          font-style: normal;
+          margin: 0 0 10px 0;
+          line-height: 110%;
+          font-size: 16px;
+          text-transform: uppercase;
+
+          a {
+            color: #312e29;
+          }
+        }
+
+        .ProductPriceWrap {
+          margin: 25px 0 25px 0;
+
+          .Label {
+            font-size: 13px;
+            font-weight: normal;
+          }
+
+          #CompareAtPrice {
+            font-family: 'Oswald', sans-serif;
+            font-weight: normal;
+          }
+
+          #ProductPrice {
+            font-family: 'Oswald', sans-serif;
+            font-weight: normal;
+            font-size: 32px;
+            color: #000000;
+            margin: 0;
+          }
+
+          .YouSave {
+            font-family: 'Oswald', sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+            padding-top: 4px;
+          }
+        }
+
+        .ProductAtt {
+          margin: 0 0 10px 0;
+          padding: 10px 0;
+          border-bottom: dotted #c8c8c8 1px;
+          
+          .Label {
+            font-size: 13px;
+            font-weight: normal;
+            padding: 0 0 5px 0;
+          }
+
+          .js-qty {
+            margin-bottom: 0;
+            margin-top: 10px;
+          }
+        }
+
+        #AddToCart {
+          background-image: url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/white/cart.png) !important;
+          background-repeat: no-repeat !important;
+          background-position: 10px 50% !important;
+          padding-left: 30px !important;
+          border-radius: 0px;
+          background-color: #f3bacf;
+          transition: all 300ms ease;
+          margin: 10px auto;
+
+          #AddToCartText {
+            text-transform: uppercase;
+            font-weight: normal;
+            min-width: 45px;
+            vertical-align: top;
+            font-family: 'Oswald',sans-serif;
+            letter-spacing: 0.5px;
+          }
+
+          &:hover {
+            background: #000000;
+          }
+        }
+      }
+    }
+
+    .description-header {
+      width: 100%;
+      display: table;
+      margin: 0;
+      line-height: 37px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      //padding: 0 5px 0 40px;
+      padding: 0 5px 0 15px;
+      background: #EAECEE;
+      font-family: 'Oswald', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+  }
+   /*----------  PRODUCT SINGLE End ----------*/
 }
 
 #AccessibleNav {
@@ -2976,7 +3117,19 @@ footer.site-footer {
   }
 }
 
-#SiteNav {
+
+
+
+
+
+.site-nav {
+    /*----------  SHOPE BY PRICE Start  ----------*/
+  &#shop-by-price {
+    font-weight: normal;
+    display: none;
+  }
+  /*----------  SHOPE BY PRICE End  ----------*/
+
   h2 {
     background: #fff url(http://cdn3.bigcommerce.com/r-d4dbaed86c5df2ef333e2ea7ee9d3989b1545c67/themes/Sammot/images/square.png);
     font-size: 18px;
@@ -3105,7 +3258,6 @@ footer.site-footer {
       margin-bottom: 20px;
       width: 23%;
       min-height: 395px;
-      margin-bottom: 20px;
 
       a {
         background: white;
@@ -3126,6 +3278,12 @@ footer.site-footer {
 
         a {
           background: #f2f2f2 !important;
+          color: #333 !important;
+          font-weight: normal;
+          line-height: 130%;
+          font-size: 14px;
+          font-family: Oswald, sans-serif;
+          letter-spacing: .1em;
         }
       }
 
@@ -3169,6 +3327,10 @@ footer.site-footer {
 
   .section-header__right {
     float: right;
+
+    #SortBy {
+      background-color: white;
+    }
   }
 }
 /*----------  COLLECTION End  ----------*/

@@ -18,7 +18,7 @@
 
 <!-- {{ 'homepage.sections.frontpage_title' | t }} -->
 <h2>TOP PICKS</h2>
-
+<div class="grid-uniform">
 {% comment %}
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
@@ -57,14 +57,14 @@
     {% include 'onboarding-featured-products' %}
 
   {% endfor %}
-
+  </div>
 
 <hr>
 
 <!-- <h2>{{ 'homepage.sections.featured_title' | t }}</h2> -->
 <h2>LATEST DEALS</h2>
 
-
+<div class="grid-uniform">
 {% comment %}
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
@@ -103,7 +103,7 @@
     {% include 'onboarding-featured-products' %}
 
   {% endfor %}
-
+</div>
 </div>
 
 {% comment %}
